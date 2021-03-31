@@ -5,8 +5,359 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            /* 讓所有元素寬高會根據padding(內距)跟border(框線)自動運算 */
+            box-sizing: border-box;
+        }
+        body{
+            /* 將元素原有的預設屬性改掉，這個行為在程式上叫做初始化*/
+            margin: 0px;
+        }
+        .nav{
+            height: 55px;
+            width: 100%;
+            position: relative;
+            padding: 0px 17px;
+            border: 1px solid rgb(235, 235, 235);
+        }
+        .logo_search{
+            width: 330px;
+            height: 100%;
+            
+            float: left;
+            padding: 7.5px 0px;
+        }
+        .logo{
+            width: 40px;
+            height: 40px;
+            /* 除了可以用background-color為方塊填色以外 */
+            /* 也可以使用background-image為方塊填上圖片 */
+            background-image: url(img/FB_LOGO.jpg);
+            /* background-image(背景圖片) 本身支援一些指令，幫助圖片定位 */
+            background-size: 120%;
+            background-position: center;
+            float: left;
+            border-radius: 50%;
+        }
+        .search{
+            width: 280px;
+            height: 40px;
+            background-color: rgb(240, 242, 245);
+            padding: 10px;
+            float: right;
+            border-radius: 20px;
+        }
+        .search_img{
+            width: 20px;
+            height: 20px;
+            float: left;
+        }
+        .search_input{
+            width: 240px;
+            height: 20px;
+            background-color: rgb(240, 242, 245);
+            border: 0px;
+            outline: 0px;
+            padding: 0px;
+        }
+        .links{
+            width: 700px;
+            height: 100%;
+            position: absolute;
+            left: calc(50% - 330px);
+            padding: 10px 0px;
+        }
+        .link{
+            width: 70px;
+            height: 35px;
+            float: left;
+            margin: 0px 35px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .home{
+            background-image: url(img/home.jpg);
+        }
+        .watch{
+            background-image: url(img/watch.jpg);
+        }
+        .shop{
+            background-image: url(img/shop.jpg);
+        }
+        .group{
+            background-image: url(img/group.jpg);
+        }
+        .game{
+            background-image: url(img/game.jpg);
+        }
+        .icons{
+            width: 295px;
+            height: 100%;
+            float: right;
+            padding: 7.5px 0px;
+        }
+        .icon.nametag{
+            background-color: rgb(209, 230, 254);
+            width: 95px;
+            border-radius: 20px;
+            margin-left: 0px;
+            padding: 5px;
+        }
+        .small_picture{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-image: url(img/cat.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            float: left;
+        }
+        .small_name{
+            height: 30px;
+            padding-top: 4.5px;
+            float: right;
+            color: blue;
+        }
+        .icon{
+            width: 40px;
+            height: 40px;
+            background-color: rgb(228, 230, 235);
+            border-radius: 50%;
+            float: left;
+            margin-left: 10px;
+            background-size: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .plus{
+            background-image: url(img/plus.jpg);
+        }
+        .messager{
+            background-image: url(img/messager.jpg);
+        }
+        .bell{
+            background-image: url(img/bell.jpg);
+        }
+        .fold{
+            background-image: url(img/fold.jpg);
+        }
+        /* 註解 使用Ctrl + ? 可以新增註解*/
+        /* 以下開始個人資料區塊 */
+
+        .banner{
+            width: 1650px;
+            height: 465px;
+            background-image: url(img/cat.jpg);
+            background-position: center;
+            background-size: cover;
+            margin: auto;
+            position: relative;
+            border-radius: 0px 0px 7px 7px;
+        }
+        .banner_mask{
+            width: 100%;
+            height: 100%;
+            background: -webkit-linear-gradient(rgba(128,128,128,0) 80%,rgba(128,128,128,1) 100%);
+            border-radius: 0px 0px 7px 7px;
+        }
+
+        .info{
+            width: 1650px;
+
+            margin: auto;
+        }
+        .person_pic{
+            width: 178px;
+            height: 178px;
+            background-image: url(img/cat.jpg);
+            background-position: 95%;
+            background-size: cover;
+            position: absolute;
+            left: calc(50% - 89px);
+            bottom: -15px;
+            border-radius: 50%;
+            border: 5px white solid;
+        }
+        .camera{
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-image: url(img/camera.jpg);
+            background-position: center;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-color: rgb(228, 230, 235);
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        .upload{
+            width: 137px;
+            height: 37px;
+            background-color: rgb(228, 230, 235);
+            position: absolute;
+            right: 33px;
+            bottom: 17px;
+            border-radius: 5px;
+            padding: 8px;
+        }
+        .upload_img{
+            width: 21px;
+            height: 21px;
+        }
+        .up{
+            width: 1180px;
+            margin: auto;
+            padding: 30px 0px;
+            border-bottom: 1px solid gray;
+        }
+        .name{
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .plus_info{
+            text-align: center;
+            color: blue;
+        }
+
+        .upload_text{
+            float:right
+        }
+
+        .down{
+            width: 1180px;
+            margin: auto;
+            height: 60px;
+        }
+        .left{
+            width: 540px;
+            height: 100%;
+            float: left;
+
+        }
+        .right{
+            width: 340px;
+            height: 100%;
+            float:right;
+            padding: 11px;
+        }
+        .tab{
+            padding: 15px;
+            float: left;
+        }
+        .btn{
+            float: left;
+            width: 45px;
+            height: 37px;
+            background-color: rgb(228, 230, 235);
+            background-size: 60%;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 10px;
+            border-radius: 5px;
+            
+        }
+        .pan{
+            width: 140px;
+            padding: 8px;
+        }
+        .pan_pic{
+            width: 20px;
+            float: left;
+        }
+
+        .eye{
+            background-image: url(img/eyes.jpg);
+        }
+        .searchA{
+            background-image: url(img/search.jpg);
+        }
+
+        .more{
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .news{
+            width: 100%;
+            height: 100px;
+            background-color: rgb(240, 240 , 240);
+        }
+
+    </style>
 </head>
 <body>
-    <p>我新增了一段文字</p>
+    <div class="nav">
+        <div class="logo_search">
+            <div class="logo"></div>
+            <div class="search" >
+                <img src="img/search.jpg" alt="" class="search_img">
+                <input type="text" placeholder="搜尋 Facebook" class="search_input" >
+            </div>
+        </div>
+        <div class="links">
+            <div class="link home"></div>
+            <div class="link watch"></div>
+            <div class="link shop"></div>
+            <div class="link group"></div>
+            <div class="link game"></div>
+        </div>
+        <div class="icons">
+            <div class="icon nametag">
+                <div class="small_picture"></div>
+                <div class="small_name">詹橘子</div>
+            </div>
+            <div class="icon plus"></div>
+            <div class="icon messager"></div>
+            <div class="icon bell"></div>
+            <div class="icon fold"></div>
+        </div>
+
+    </div>
+    <div class="personal_image">
+        <div class="banner">
+            <div class="banner_mask"></div>
+            <div class="person_pic">
+                <div class="camera"></div>
+            </div>
+            <div class="upload">
+                <img src="img/camera.jpg" alt="" class="upload_img">
+                <div class="upload_text">加上封面相片</div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="up">
+                <div class="name">詹橘子</div>
+                <div class="plus_info">我是一隻菊貓，餵我</div>
+            </div>
+            <div class="down">
+                <div class="left">
+                    <div class="tab">貼文</div>
+                    <div class="tab">關於</div>
+                    <div class="tab">朋友 0</div>
+                    <div class="tab">相片</div>
+                    <div class="tab">限時動態典藏</div>
+                    <div class="tab">影片</div>
+                    <div class="tab">更多</div>
+                </div>
+                <div class="right">
+                    <div class="btn pan">
+                        <img src="img/pan.jpg" alt="" class="pan_pic">
+                        <div class="text">編輯個人檔案</div>
+                    </div>
+                    <div class="btn eye"></div>
+                    <div class="btn searchA"></div>
+                    <div class="btn more">…</div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <div class="news"></div>
 </body>
 </html>

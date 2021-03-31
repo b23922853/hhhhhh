@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pic1{
+            width: 400px;
+            height: 300px;
+        }
+        .pic2{
+            width: 400px;
+            height: 300px;
+            /* 在使用background-image載入圖片時，有許多屬性可以設定 */
+            background-image: url(img/Wiki.png);
+            /* 可以使用background-repeat 要求圖片不要重複 */
+            background-repeat: no-repeat;
+        }
+        .pic3{
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            /* 在使用background-image載入圖片時，有許多屬性可以設定 */
+            background-image: url(img/cat.jpg);
+            /* 可以使用background-repeat 要求圖片不要重複 */
+            background-repeat: no-repeat;
+            /* 可以使用background-size 設定圖片大小 */
+            /* 他可以輸入 px, % 來設定大小 */
+            /* 而他本身也提供幾個特別的參數: cover 跟 contain*/
+            
+            /* cover = 將圖片放大(或縮小)到完整填滿方塊本身 */
+            /* 特點，如果比例不同圖片會被切割 */
+            background-size: cover;
+        }
+        .pic4{
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            /* 在使用background-image載入圖片時，有許多屬性可以設定 */
+            background-image: url(img/cat.jpg);
+            /* 可以使用background-repeat 要求圖片不要重複 */
+            background-repeat: no-repeat;
+            /* 可以使用background-size 設定圖片大小 */
+            /* 他可以輸入 px, % 來設定大小 */
+            /* 而他本身也提供幾個特別的參數: cover 跟 contain*/
+
+            /* contain = 將圖片放大(或縮小)到圖片整體都可以顯示在方塊裡面 */
+            /* 特點，如果比例不同方塊會出現空白區域 */
+            background-size: contain;
+        }
+
+        .pic5{
+            width: 200px;
+            height: 600px;
+            background-image: url(img/dog.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* background-position 屬性可以讓背景圖片根據自己想要的方式對齊 */
+            /* 可以輸入 px, % 基本單位外，還有 center, left, top 等指令可以用 */
+            background-position: center;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    <p>在網頁裡面，如果你需要放圖片時，他有提供一個img標籤可以讓你在畫面中載入圖片</p>
+    <p>單純在src的部分加上圖片位置路徑 就可以載入圖片</p>
+    <p>alt則是替代文字，在圖片連結失聯的時候會代為顯現這些文字</p>
+    <img src="img/cat.jpg" alt="這裡有兩隻貓" class="pic1">
+
+    <p>但是他做為一張普通的圖片標籤，因為沒有結尾標籤，相對在排版上能做的事比較少</p>
+    
+    <p>在網頁中除了圖片標籤以外，也可以藉由背景圖片的屬性載入圖片到畫面中</p>
+    <div class="pic2"></div>
+
+    <div class="pic3"></div>
+    <p>上方圖片為cover,下方圖片為contain</p>
+    <div class="pic4"></div>
+
+    <div class="pic5"></div>
+
+    <p>那，我何時決定要用img標籤，還是使用div的背景圖片呢?</p>
+    <p>如果這張圖片，很重要。絕對不希望被干擾或切掉。建議使用img標籤。反之如果可以接受排版的改變。使用div</p>
+
+
+    <p>補充，圖片/影片路徑</p>
+    <p>本機(本地)圖片，我們可以使用相對路徑，以自身檔案為出發點去找檔案</p>
+    <p>相對路徑不需要開頭，可以直接指定檔案。 或者是用"./"</p>
+    <p>例如:我要找到跟我這個網頁同目錄底下的FB切版 新版.png</p>
+    <img src="FB切版 新版.png" alt="">
+    <p>如果:要找同層的資料夾裡面的圖片 使用/去下一個目錄</p>
+    <img src="img/dog.jpg" alt="">
+    <p>如果:我要找到隔壁資料夾裡面的圖片 可以用 .. 移至上一層目錄</p>
+    <img src="../03-position/練習範本.png" alt="">
+
+    
+    <p>本機(本地)圖片，除了可以使用相對路徑外，也可以使用絕對路徑去尋找</p>
+    <p>絕對路徑的起始點會以"網站的根目錄開始"，所以在下手前必須看清楚自己開啟的資料夾是哪一個</p>
+    <p>絕對路徑的寫法以"/"做為開頭</p>
+    <img src="/04-FB切版練習/FB切版 新版.png" alt="直接打開就看不到啦RRRRRRR">
+
+    <p>絕對路徑要注意的點就是如果你的根目錄(網站起始點)不一樣，圖片就有可能找不到</p> 
+    
+
+</body>
+</html>
